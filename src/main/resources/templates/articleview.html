@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DzenNews</title>
+</head>
+<body>
+<h1>MyArticles</h1>
+<h4>News</h4>
+<form th:action="@{/article/add}" method="get" enctype="multipart/form-data">
+    <input type="submit" value="Создать свою запись"/>
+</form>
+
+<div th:if="${not #lists.isEmpty(articles)}">
+    <div th:each="a : ${articles}">
+        <div>
+            <p><b><span th:text="${a.title}"></span></b>
+                <span th:text="${a.city}"></span> | <a th:href="@{/article/{id}(id=${a.id})}">Подробнее...</a>
+                <span th:text="${a.author}"></span>
+                <span th:text="${a.description}"></span></p>
+        </div>
+    </div>
+    <div th:each="img : ${images}">
+        <img th:src="@{/images/{id}(id=${img.id})}" height="60px"/><br><br>
+    </div>
+</div>
+
+<div th:if="${#lists.isEmpty(articles)}">
+    <h3>Статей нет</h3>
+</div>
+
+</body>
+</html>

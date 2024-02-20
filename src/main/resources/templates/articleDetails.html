@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Details</title>
+</head>
+<body>
+<h1>Article Details</h1>
+<div>
+    <p><b>Title: </b><span th:text="${article.title}"></span></p>
+    <p><b>City: </b><span th:text="${article.city}"></span></p>
+    <p><b>Author: </b><span th:text="${article.author}"></span></p>
+    <p><b>Description: </b><span th:text="${article.description}"></span></p>
+</div>
+<div>
+    <h2>Images:</h2>
+    <div th:each="img : ${images}">
+        <img th:src="@{/images/{id}(id=${img.id})}" height="100px"/><br><br>
+    </div>
+</div>
+</body>
+</html>

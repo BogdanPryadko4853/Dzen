@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dzen</title>
+</head>
+<body>
+<h1>Dzen</h1>
+<hr>
+<h4>Article</h4>
+<form th:action="@{/}" method="get">
+    Поиск: <input type="text" name="title"><br>
+    <input type="submit" value="search"/>
+</form>
+<form th:action="@{/article/create}" method="post" enctype="multipart/form-data" >
+    Название: <input type="text" name="title"/><br><br>
+    Описание: <input type="text" name="description"/><br><br>
+    Автор: <input type="text" name="author"/><br><br>
+    Город: <input type="text" name="city"/><br><br>
+    Первая фотография: <input type="file" name="file1"/><br><br>
+    Вторая фотография: <input type="file" name="file2"/><br><br>
+    Третья фотография: <input type="file" name="file3"/><br><br>
+    <input type="submit" value="Опубликовать"/>
+</form>
+<form th:action="@{/article/watch}" method="get" enctype="multipart/form-data" >
+    <input type="submit" value="посмотреть все статьи"/>
+</form>
+</body>
+</html>
