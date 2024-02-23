@@ -51,7 +51,7 @@ public class ArticleService {
             log.info("Saving new Product. {}", currentEvents.getTitle());
             CurrentEvents currentEvents1 = articleRepository.save(currentEvents);
             currentEvents1.setPreviewImageId(currentEvents1.getImages().get(0).getId());
-            articleRepository.save(currentEvents);
+            articleRepository.save(currentEvents1);
         }
     }
 
@@ -65,7 +65,7 @@ public class ArticleService {
         return image;
     }
 
-    public  List<CurrentEvents> getAllArticles(){
+    public List<CurrentEvents> getAllArticles() {
         return articleRepository.findAll();
     }
 
